@@ -1,0 +1,232 @@
+:root {
+  --bg-gradient: linear-gradient(135deg, #667eea, #764ba2);
+  --card-bg: rgba(255, 255, 255, 0.15);
+  --text-color: #fff;
+  --input-bg: rgba(255, 255, 255, 0.2);
+  --input-focus: rgba(255, 255, 255, 0.3);
+  --button-bg: linear-gradient(135deg, #00c6ff, #0072ff);
+  --button-secondary: linear-gradient(135deg, #f7971e, #ffd200);
+  --hover-glow: #ffe600;
+}
+
+body.dark-mode {
+  --bg-gradient: linear-gradient(135deg, #1e1e2f, #111119);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --text-color: #eee;
+  --input-bg: rgba(255, 255, 255, 0.08);
+  --input-focus: rgba(255, 255, 255, 0.15);
+  --button-bg: linear-gradient(135deg, #8e2de2, #4a00e0);
+  --button-secondary: linear-gradient(135deg, #00f260, #0575e6);
+  --hover-glow: #00f5d4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  transition: all 0.4s ease;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 25px;
+  padding: 40px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  color: var(--text-color);
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  background: var(--input-bg);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+input::placeholder {
+  color: #dcdcdc;
+}
+
+input:focus {
+  background: var(--input-focus);
+  box-shadow: 0 0 0 2px #a18cd1;
+  outline: none;
+}
+
+.form-group input[type="checkbox"] {
+  margin-right: 10px;
+  accent-color: #ffffff;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 12px;
+  background: var(--button-bg);
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button.secondary {
+  background: var(--button-secondary);
+  color: #222;
+}
+
+button:hover {
+  transform: scale(1.07);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.result {
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.username-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+.username-list li {
+  background: var(--input-focus);
+  margin-bottom: 12px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.username-item {
+  font-size: 1.2rem;
+  word-break: break-word;
+}
+
+.username-list button {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: transform 0.2s ease;
+}
+
+.username-list button:hover {
+  transform: scale(1.2);
+  color: var(--hover-glow);
+}
+
+.toggle-container {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 34px;
+  top: 0; left: 0; right: 0; bottom: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}

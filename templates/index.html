@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Random Username Generator</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <!-- Dark Mode Toggle -->
+        <div class="toggle-container">
+          <label class="switch">
+            <input type="checkbox" id="modeToggle" />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <h1>🔐 Random Username Generator</h1>
+        <form method="POST">
+          <div class="form-group">
+            <label
+              ><input type="checkbox" name="include_number" /> Include
+              Numbers</label
+            >
+            <label
+              ><input type="checkbox" name="include_special" /> Include Special
+              Characters</label
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="length">Max Username Length</label>
+            <input
+              type="text"
+              name="length"
+              id="length"
+              placeholder="e.g., 12"
+            />
+          </div>
+
+          <div class="buttons">
+            <button type="submit" name="generate">Generate</button>
+            <button type="submit" name="save" class="secondary">
+              Generate & Save
+            </button>
+          </div>
+        </form>
+
+        {% if username %}
+        <div class="result">
+          <p><strong>Your Username:</strong></p>
+          <ul class="username-list">
+            <li>
+              <span class="username-item" id="generated-username"
+                >{{ username }}</span
+              >
+              <button onclick="copyUsername('generated-username')">📋</button>
+            </li>
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
